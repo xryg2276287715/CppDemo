@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <iostream>
 #include "virtual/base.hpp"
-
+#include "c5/handler.h"
 
 int main() {
     person *p;
@@ -11,5 +11,8 @@ int main() {
     p->sayInfo();
     p = &g;
     p->sayInfo();
+
+    A a;
+    a.test(100);
     return 0;
 }
