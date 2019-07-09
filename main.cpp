@@ -3,9 +3,14 @@
 #include "virtual/base.hpp"
 #include "c5/handler.h"
 
+int date;
+
+extern void func_extern();
+
 int main() {
+    date=10;
     person *p;
-    boy b(3, "bb","hh");
+    boy b(3, "bb", "hh");
     girl g(4, "gg");
     p = &b;
     p->sayInfo();
@@ -14,5 +19,12 @@ int main() {
 
     A a;
     a.test(100);
+    int cnt = 4;
+    while (cnt > 0) {
+        a.count();
+        cnt--;
+    }
+
+    func_extern();
     return 0;
 }

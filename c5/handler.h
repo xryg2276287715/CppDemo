@@ -12,6 +12,8 @@ public:
     };
 
     void test(int ad);
+
+    void count();
 };
 
 #endif //CPPDEMO_HANDLER_H

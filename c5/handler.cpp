@@ -11,4 +11,14 @@ void A::test(int ad) {
     cout << pointer(ad) << endl; //相当于快速赋值
 }
 
+void A::count() {
+    static int i=0;
+    i++;
+    cout<<"i="<<i<<endl;
+}
+
+extern  int date;
+void func_extern(){
+    cout<<"date:"<<date<<endl;
+}
 
