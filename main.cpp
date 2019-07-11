@@ -8,7 +8,7 @@ int date;
 extern void func_extern();
 
 int main() {
-    date=10;
+    date = 10;
     person *p;
     boy b(3, "bb", "hh");
     girl g(4, "gg");
@@ -26,5 +26,10 @@ int main() {
     }
 
     func_extern();
+
+    cout << "--------simplePoint-------" << endl;
+    a.simplePoint();
+    cout << "--------pointArray-------" << endl;
+    a.pointArray();
     return 0;
 }
