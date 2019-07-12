@@ -27,9 +27,15 @@ int main() {
 
     func_extern();
 
-    cout << "--------simplePoint-------" << endl;
+    cout << "--------point begin-------" << endl;
     a.simplePoint();
-    cout << "--------pointArray-------" << endl;
     a.pointArray();
+    cout << "--------point end-------" << endl;
+
+    string str ;
+    cout<<"input str info"<<endl;
+    cin>>str;
+    cin.ignore();
+    cout << "string=" << str << endl;
     return 0;
 }
