@@ -2,6 +2,7 @@
 #include <iostream>
 #include "virtual/base.hpp"
 #include "c5/handler.h"
+#include "mem/mem.hpp"
 
 int date;
 
@@ -32,10 +33,12 @@ int main() {
     a.pointArray();
     cout << "--------point end-------" << endl;
 
-    string str ;
-    cout<<"input str info"<<endl;
-    cin>>str;
-    cin.ignore();
-    cout << "string=" << str << endl;
+//    string str;
+//    cout << "input str info" << endl;
+//    cin >> str;
+//    cin.ignore();
+//    cout << "string=" << str << endl;
+
+    testNew();
     return 0;
 }
