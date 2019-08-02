@@ -1,32 +1,12 @@
 #include <stdio.h>
 #include <stdlib.h>
-
-typedef struct Frame {
-    struct Frame *pre;//指向上一个栈帧
-    int local1;
-    int local2;
-    short local3;
-} frame;
-
-typedef struct Stack {
-    frame *base;//栈底
-    frame *top;//栈顶
-    int size;//堆栈大小
-} stack;
-
-void initStack(stack *stk);
-
-void push(stack *stk, frame *nextFrm);
-
-void pop(stack *stk);
-
-void iterate(stack *stk);
+#include "stack.h"
 
 int testStack() {
     stack *st = (stack *) malloc(sizeof(struct Stack));
     printf("sizeof(struct Frame)=%lu\n", sizeof(struct Frame));
     initStack(st);
-    frame *frm = null;
+    frame *frm = nullptr;
     for (int i = 0; i < 3; i++) {
         frm = (frame *) malloc(sizeof(struct Frame));
         printf("当前栈帧起始地址 %p\n", frm);
@@ -45,9 +25,9 @@ int testStack() {
 }
 
 void initStack(stack *stk) {
-    stk->base = null;
-    stk->top = null;
-    stk->size = null;
+    stk->base = nullptr;
+    stk->top = nullptr;
+    stk->size = 0;
 }
 
 void push(stack *stk, frame *nextFrm) {
@@ -79,7 +59,7 @@ void iterate(stack *stk) { //降序遍历，从top开始
     }
     frame *pt = stk->top; //指针遍历
     int size = stk->size;//堆栈大小
-    printf("***当前堆栈共%d个栈帧*****", size)
+    printf("***当前堆栈共%d个栈帧*****", size);
 
     while (size > 0) {
         printf("当前是第%d个栈帧\n", size);
