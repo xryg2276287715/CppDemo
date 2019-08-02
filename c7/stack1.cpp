@@ -23,7 +23,25 @@ void pop(stack *stk);
 void iterate(stack *stk);
 
 int testStack() {
-//TODO
+    stack *st = (stack *) malloc(sizeof(struct Stack));
+    printf("sizeof(struct Frame)=%lu\n", sizeof(struct Frame));
+    initStack(st);
+    frame *frm = null;
+    for (int i = 0; i < 3; i++) {
+        frm = (frame *) malloc(sizeof(struct Frame));
+        printf("当前栈帧起始地址 %p\n", frm);
+        frm->local1 = i * 2 + 1;
+        frm->local2 = i * 2 + 2;
+        frm->local3 = i * 2 + 3;
+        push(st, frm);
+    }
+    iterate(st);
+    for (int i = 0; i < 3; i++) {
+        pop(st);
+        iterate(st);
+    }
+    pop(st);
+    return 0;
 }
 
 void initStack(stack *stk) {
@@ -59,13 +77,14 @@ void iterate(stack *stk) { //降序遍历，从top开始
         printf("%s\n", "堆栈已空，无需遍历");
         return;
     }
-    frame *pt=stk->top; //指针遍历
-    int size=stk->size;//堆栈大小
-    printf("***当前堆栈共%d个栈帧*****",size)
+    frame *pt = stk->top; //指针遍历
+    int size = stk->size;//堆栈大小
+    printf("***当前堆栈共%d个栈帧*****", size)
 
-    while(size>0){
-
-
+    while (size > 0) {
+        printf("当前是第%d个栈帧\n", size);
+        printf("local1=%d,local2=%d,local3=%d\n", pt->local1, pt->local2, pt->local3);
+        pt = pt->pre;
         size--;
     }
 
